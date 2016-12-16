@@ -1,0 +1,4 @@
+In the case where the robot moves according to a recorded motion sequency, the TrackingDataSource is the robot (from markers attached to the plate).  The robot essentially does a transform (or is a filter) of the recording (incoming stream) and the generated movement (outgoing stream).
+
+run an active block and look at the trajectories.
+run a passive block with the above recorded motion and compare the trajectories.

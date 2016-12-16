@@ -1,0 +1,133 @@
+#Inventor V2.1 ascii
+Separator {
+
+    PolygonOffset {
+        styles FILLED
+        units 1
+    }
+    # X and Y axes
+    Separator {
+        Translation {
+            translation 0 0 0.01
+        }
+        LightModel {
+            model	BASE_COLOR
+        }
+        DrawStyle {
+            lineWidth	2
+        }
+        Coordinate3 {
+            point	[ -1 0 0,
+                              1 0 0,
+                              0 1 0,
+                              0 -1 0 ]
+        }
+        IndexedLineSet {
+            vertexProperty		VertexProperty {
+                vertex [ -1 0 0,
+                                  1 0 0,
+                                  0 1 0,
+                                  0 -1 0 ]
+                normal	[  ]
+                texCoord	[  ]
+                orderedRGBA	[ 0xff0000ff, 0xff0000ff, 0xffff ]
+                materialBinding	PER_PART
+            }
+
+            coordIndex	[ 0, 1,-1, 2,3, -1]
+        }
+    }
+
+    # unit disk
+    Separator {
+
+        Material {
+            #diffuseColor 0.1 0 0
+            diffuseColor 0.35 0.1 0.05
+        }
+        Complexity {
+            value 0.7
+        }
+        Translation {
+            translation 0 0 -1
+        }
+        RotationXYZ {
+            axis X
+            angle -1.570796
+            }
+        Cone {
+            parts BOTTOM
+            bottomRadius 1
+        }
+    }
+    
+    # origin
+    Separator {
+        Material {
+            diffuseColor 0.5 0.0 0
+        }
+        Translation {
+            translation 0 0 0.05
+        }
+        RotationXYZ {
+            axis X
+            angle 1.570796
+        }
+        Cylinder {
+            radius 0.05
+            height 0.05
+        }
+    }
+
+    # the orientation of the compass
+    DEF compass_orientation RotationXYZ {
+        axis Z
+    }
+
+    # the separator will help caching
+    Separator {
+        # Raise above the XY plane slightly (thickness of the arrows)
+        Translation {
+            translation 0 0 0.04
+        }
+
+        # Both Cylinder and Cone are lined up with Y (+90 deg), make
+        # them line up with X (0 deg)
+        RotationXYZ {
+            axis Z
+            angle -1.570796
+        }
+
+        Material {
+            diffuseColor 0 0 1.0
+        }
+        # the stem length is 1.9, to leave some space for the pointer
+        # radius is 0.08
+        # by default it centers around y axis
+        # move one end of the stem to the origin
+        Cylinder {
+            radius 0.01
+            height 1.9 
+        }
+
+        Material {
+            diffuseColor 1.0 0 0
+        }
+        # the double arrow
+        Translation {
+            translation 0 0.95 0
+        }
+        DEF cone Cone {
+            bottomRadius 0.04
+            height 0.1
+        }
+        Translation {
+            translation 0 -1.9 0
+        }
+        Rotation {
+            rotation 0 0 1 3.1415927
+        }
+        USE cone
+    }
+}
+

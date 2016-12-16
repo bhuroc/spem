@@ -1,0 +1,37 @@
+###################################################################
+#
+# Change the following parameters if needed
+# 
+param "number of trials" 60
+param "real dummy trials ratio" 1
+param "tool tip tolerance" "3"
+param "trial duration" "20000"
+param "stereo" "tru" 
+param "quadrant size" "8"
+param "opto sampling rate" "250"
+param "eyelink sampling rate" "250"
+param "do eye tracking" "true"
+param "drift correct frequency" "20"
+param "speed limits" ""
+param "use 3d mouse" "false"
+param "do rotation" "tru"
+param "trial creator type" "real"
+# eyelink
+param "eyelink screen width"  "384"  
+param "eyelink screen height"  "288"  
+param "logging" "false"
+#noise
+param "number of noise images" 30
+# the handle
+# default number of markers is 3
+#param "tool name" dumbell
+param "tool name" marker 
+param "tool offset" "0 0 133.23 0 0 0"
+param "handle2rb transform" "-0.0394491 0.0916329 -0.995006 147.687 0.326561 -0.939432 -0.0995539 3.99023 -0.943864 -0.328858 0.00714262 -6.57636 0 0 0 1"
+param "handle iv file" "[file join lib dumbell.iv]"
+#the initial postion of the dumbell, negative y values bring the 
+#thing closer to the subject
+param "access offset" "0 0 0"
+param "beep interval" "2500"
+param "noise contrast low" "0.0"
+param "noise contrast high" "0.5"

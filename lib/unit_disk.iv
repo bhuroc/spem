@@ -1,0 +1,20 @@
+#Inventor V2.1 ascii
+# unit disk
+Separator {
+
+    Complexity {
+        value 0.7
+    }
+    Translation {
+        translation 0 0 -1
+    }
+    RotationXYZ {
+        axis X
+        angle -1.570796
+        }
+    Cone {
+        parts BOTTOM
+        bottomRadius 1
+    }
+}
+

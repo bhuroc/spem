@@ -1,0 +1,61 @@
+#Inventor V2.1 ascii
+# X and Y axes
+Separator {
+    Translation {
+        translation 0 0 0.01
+    }
+    LightModel {
+        model	BASE_COLOR
+    }
+    DrawStyle {
+        lineWidth	2
+    }
+    Coordinate3 {
+        point	[ -1 0 0,
+                          1 0 0,
+                          0 1 0,
+                          0 -1 0 ]
+    }
+    IndexedLineSet {
+        vertexProperty		VertexProperty {
+            vertex [ -1 0 0,
+                              1 0 0,
+                              0 1 0,
+                              0 -1 0 ]
+            normal	[  ]
+            texCoord	[  ]
+            orderedRGBA	[ 0xff0000ff, 0xff0000ff, 0xffff ]
+            materialBinding	PER_PART
+        }
+
+        coordIndex	[ 0, 1,-1, 2,3, -1]
+    }
+}
+
+# unit disk
+Separator {
+
+    PolygonOffset {
+        styles FILLED
+        units 1
+    }
+    Material {
+        #diffuseColor 0.1 0 0
+        diffuseColor 0.35 0.1 0.05
+    }
+    Complexity {
+        value 0.9
+    }
+    Translation {
+        translation 0 0 -1
+    }
+    RotationXYZ {
+        axis X
+        angle -1.570796
+        }
+    Cone {
+        parts BOTTOM
+        bottomRadius 1
+    }
+}
+

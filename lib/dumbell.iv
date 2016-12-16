@@ -1,0 +1,78 @@
+#Inventor V2.1 ascii
+Separator {
+    # name of the object, can be used for searching
+    # Note the name is the same as the rigid body
+    # file name, so the search action can use Manager.get_tool_name()
+    # to set the name.
+    DEF dumbell Label {
+        label "dumbell starts here"
+    }
+
+    # the cylinders are around the y axis, make then around the z 
+    RotationXYZ {
+        axis X
+        angle 1.5708
+    }
+    DrawStyle {
+        style LINES
+    }
+    Material {
+        diffuseColor 1 0 0 
+    }
+    Separator {
+
+        #bottom plate
+
+        # raise it by half of its height, which is 12.36 mm
+        Translation {
+            translation 0 6.18 0
+        }
+        Cylinder {
+            radius 75
+            height 12.36
+        }
+
+        # the bar
+        # raise it by half of its height, 114.22 and the half 
+        # height of the bottom plate, which is already raised 
+        # 114.22/2+6.18=57.11+6.18
+        Translation {
+            translation 0 63.29 0
+        }
+        Cylinder {
+            radius 12.85
+            height 114.22
+        }
+
+        # top plate
+        # raise half of its own height (6.65) and half of the bar
+        # 6.65/2+57.11=3.325+57.11=60.435
+        Material {
+            diffuseColor 0 1 0 
+        }
+        Translation {
+            translation 0 60.435 0
+        }
+        Cylinder {
+            radius 75
+            height 6.65
+        }
+
+        # a pointer to break the symmetry
+        Material {
+            diffuseColor 1 1 0
+        }
+        Translation {
+            translation -72 0 0 
+        }
+        RotationXYZ {
+            axis Z
+            angle 1.570796
+        }
+        Cone {
+            bottomRadius 1.5
+            height 3
+        }
+
+    }
+}

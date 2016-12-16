@@ -1,0 +1,103 @@
+#Inventor V2.0 ascii
+Separator {
+    # the same overall texture size and orientation
+    # the common texture unit for the single stripe (wrapS CLAMP) with
+    # different color.
+    #
+    # overall rotation
+    DEF pattern_orientation RotationXYZ {
+        axis Z
+        #angle 0.795398
+    }
+
+    Complexity {
+        textureQuality 10
+    }
+
+    # choose dummy and real patterns
+    DEF pattern_chooser Switch {
+
+        # There are 2 children: 
+        # 1. better visual motion information
+        # 2. worse visual motion information
+        whichChild 0
+
+        ### Multiple stripes with a colored stripe (disabled for now )
+        SoGroup{
+
+            DEF visual_pattern_transform Texture2Transform {
+                scaleFactor 10 10
+            }
+
+            TextureCoordinate2 {
+                point[ 0 0, 1 0, 1 1, 0 1]
+            }
+
+            Texture2 {
+                filename "square_dots.png"
+                model DECAL
+            }
+        }
+
+        ### Multiple stripes with a colored stripe (disabled for now )
+        #   and random square dots overlaid.
+        SoGroup{
+
+            # the stripes
+            TextureUnit {
+                unit 0
+            }
+
+            DEF visual_pattern_transform Texture2Transform {
+                scaleFactor 10 10
+            }
+
+            TextureCoordinate2 {
+                point[ 0 0, 1 0, 1 1, 0 1]
+            }
+
+            Texture2 {
+                filename "uni256.png"
+            }
+        }
+        
+    }
+
+    # base color 
+    Material {
+        diffuseColor 1 0 0
+    }
+
+    # make it big
+    Scale {
+            scaleFactor 1000 1000 1
+    }
+
+    # unit square
+    Separator {
+
+        Normal {
+            vector 0 0 1
+        }
+
+        # texture coordinates
+        TextureCoordinate2 {
+            point[ 0 0, 1 0, 1 1, 0 1]
+        }
+
+        # vertices from left bottom go ccw 
+        Coordinate3 {
+            point [ -0.5 -0.5 0,
+                0.5 -0.5 0,
+                0.5 0.5 0,
+                -0.5 0.5 0]
+        }
+
+        # the shape
+        FaceSet{
+            startIndex 0
+            numVertices 4
+        }
+    }
+
+}

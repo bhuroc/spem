@@ -1,0 +1,73 @@
+#Inventor V2.1 ascii
+# X and Y axes
+Separator {
+    Translation {
+        translation 0 0 0.01
+    }
+    LightModel {
+        model	BASE_COLOR
+    }
+    DrawStyle {
+        lineWidth	2
+    }
+    Coordinate3 {
+        point	[ -1 0 0,
+                          1 0 0,
+                          0 1 0,
+                          0 -1 0 ]
+    }
+    IndexedLineSet {
+        vertexProperty		VertexProperty {
+            vertex [ -1 0 0,
+                              1 0 0,
+                              0 1 0,
+                              0 -1 0 ]
+            normal	[  ]
+            texCoord	[  ]
+            orderedRGBA	[ 0xfff000ff, 0xfff000ff, 0xffff ]
+            materialBinding	PER_PART
+        }
+
+        coordIndex	[ 0, 1,-1, 2,3, -1]
+    }
+}
+
+# 2 unit squares
+Separator {
+
+    Material {
+        diffuseColor 0.65 0.0 0.1
+    }
+    Complexity {
+        value 0.9
+    }
+    Translation {
+        translation 0.5 0.5 0
+    }
+    DEF unit_square Separator {
+
+        Normal {
+            vector 0 0 1
+        }
+
+        # vertices
+        Coordinate3 {
+            point [ -0.5 -0.5 0,
+                0.5 -0.5 0,
+                0.5 0.5 0,
+                -0.5 0.5 0]
+        }
+
+        # the shape
+        FaceSet{
+            startIndex 0
+            numVertices 4
+        }
+    }
+
+    Translation {
+       translation -1 -1 0
+   }
+   USE unit_square
+}
+
